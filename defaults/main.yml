@@ -1,0 +1,2 @@
+---
+zsh_omz_custom_repo: https://github.com/{{ user_username }}/oh-my-zsh-custom.git

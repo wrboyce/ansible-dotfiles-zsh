@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Will Boyce
+  description: Configures zsh using oh-my-zsh and oh-my-zsh/custom repo
+  license: Apache2
+  min_ansible_version: 1.2
+  platforms:
+  - name: MacOSX
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags: [zsh, dotfiles]
+
+dependencies: []

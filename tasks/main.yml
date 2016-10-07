@@ -1,0 +1,26 @@
+---
+- name: install zsh
+  homebrew: name=zsh state=latest
+  tags: [zsh, dotfiles]
+
+- name: install oh-my-zsh
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git
+       dest={{ user_home }}/.oh-my-zsh
+  tags: [zsh, config, dotfiles]
+
+- name: set oh-my-zsh owner
+  file: path={{ user_home }}/.oh-my-zsh owner={{ user_username }}
+  tags: [zsh, config, dotfiles]
+
+- name: download zsh config
+  git: repo={{ zsh_omz_custom_repo }}
+       dest={{ user_home }}/.oh-my-zsh-custom accept_hostkey=yes
+  tags: [zsh, config, dotfiles]
+
+- name: set oh-my-zsh-custom owner
+  file: path={{ user_home }}/.oh-my-zsh-custom owner={{ user_username }}
+  tags: [zsh, config, dotfiles]
+
+- name: activate zsh config
+  file: src={{ user_home }}/.oh-my-zsh-custom/zshrc dest={{ user_home }}/.zshrc state=link owner={{ user_username }}
+  tags: [zsh, config, dotfiles]
