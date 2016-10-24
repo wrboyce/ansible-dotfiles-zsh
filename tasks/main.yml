@@ -2,6 +2,7 @@
 - name: install zsh
   homebrew: name=zsh state=latest
   tags: [zsh, dotfiles]
+  when: ansible_system == 'Darwin'
 
 - name: install oh-my-zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git
